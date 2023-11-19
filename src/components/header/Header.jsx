@@ -4,10 +4,14 @@ import HeaderIntroduction from './HeaderIntroduction';
 
 const Header = () => {
   return (
-    <header>
-      <HeaderBar />
-      <HeaderInputBox />
-      <HeaderIntroduction />
+    <header className="bg-mainBackgroundColor text-white relative">
+      <section className="flex justify-between pt-6 pb-6 pl-48 pr-6 items-center ">
+        <HeaderBar />
+        <HeaderInputBox />
+      </section>
+      <section className="flex justify-end">
+        <HeaderIntroduction />
+      </section>
     </header>
   );
 };
