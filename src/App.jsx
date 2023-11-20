@@ -12,6 +12,7 @@ import RootLayout from './layouts/RootLayout';
 import RecentlyGames from './pages/RecentlyGames';
 import Details from './pages/Details';
 import FetchAPI from './functions/fetchData';
+import LoadingSpinner from './components/loading/LoadingSpinner';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,7 +27,7 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return <RouterProvider router={router} />;
+  return <RouterProvider router={router} fallbackElement={<LoadingSpinner />} />;
 }
 
 export default App;
