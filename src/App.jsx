@@ -12,7 +12,6 @@ import RootLayout from './layouts/RootLayout';
 import RecentlyGames from './pages/RecentlyGames';
 import Details from './pages/Details';
 import FetchAPI from './functions/fetchData';
-import { useEffect } from 'react';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,10 +26,6 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  useEffect(() => {
-    FetchAPI();
-  });
-
   return <RouterProvider router={router} />;
 }
 
