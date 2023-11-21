@@ -9,6 +9,7 @@ export default {
         buttonBackgroundColor: '#FF4654',
         mainFontColor: '#fff',
         inputBackgroundColor: '#375470',
+        borderColorWhite: '#FFFFFF75',
       },
       backgroundImage: {
         'main-header-bg': "url('/images/homeHeaderImage.png')",

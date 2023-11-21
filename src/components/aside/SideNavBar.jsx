@@ -6,7 +6,7 @@ import './SideNavBar.css';
 
 const SideNavBar = () => {
   return (
-    <aside className="fixed left-0 top-0 flex justify-center border-r-4 h-full aside">
+    <aside className="fixed left-0 top-0 flex justify-center border-r-4 h-full aside z-10">
       <nav className="flex flex-col pt-8 ">
         <input
           type="checkbox"
