@@ -7,7 +7,7 @@ const RootLayout = () => {
     <>
       <Header />
       <SideNavBar />
-      <main className="bg-mainBackgroundColor">
+      <main className="bg-mainBackgroundColor flex flex-col">
         <Outlet />
       </main>
     </>
