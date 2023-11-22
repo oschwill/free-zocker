@@ -20,7 +20,7 @@ const ItemCard = ({ item, hasDescription, verticalDirection, index }) => {
       )}
       <div
         className={`flex flex-col  mt-12 ml-[1vw] mr-[1vw] justify-center ${
-          verticalDirection ? 'gap-16' : 'gap-6'
+          verticalDirection ? 'gap-16' : 'gap-6 pl-8'
         }`}
       >
         <h2 className="text-white text-2.5rem h-[2vh] ">{item.title} </h2>
@@ -34,7 +34,7 @@ const ItemCard = ({ item, hasDescription, verticalDirection, index }) => {
           READ MORE
         </Link>
         <div
-          className={`flex items-center gap-6 pt-12 pb-12 ${
+          className={`flex items-center gap-6 ${verticalDirection ? 'pt-12' : 'pt-6'} pb-12 ${
             verticalDirection ? 'border-t-2 border-borderColorWhite' : ''
           }`}
         >

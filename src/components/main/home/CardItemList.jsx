@@ -5,11 +5,12 @@ import SliderButton from './SliderButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 
-const CardItemList = ({ getRecentlyAdded, hasDescription }) => {
+const CardItemList = ({ currentData, hasDescription, headline, max }) => {
   const [slidePosition, setSlidePosition] = useState(0);
 
   const movePosition = 84;
-  const maxSlidePosition = (getRecentlyAdded().length / 4 - 1) * movePosition;
+  const maxSlidePosition = (currentData(max).length / 4 - 1) * movePosition;
+  console.log(maxSlidePosition);
 
   const slideGallery = (type) => {
     switch (type) {
@@ -29,9 +30,11 @@ const CardItemList = ({ getRecentlyAdded, hasDescription }) => {
     }
   };
 
+  console.log(currentData(max).length);
+
   return (
     <section className="flex flex-col w-full justify-start pl-[10%] pt-[4%] overflow-hidden relative">
-      <h2 className="text-white text-2.5rem mb-16">Recently Added</h2>
+      <h2 className="text-white text-2.5rem mb-16">{headline}</h2>
 
       <SliderButton slideGallery={slideGallery} classes="left-[7%]" type="prev">
         <FontAwesomeIcon
@@ -54,7 +57,7 @@ const CardItemList = ({ getRecentlyAdded, hasDescription }) => {
           style={{ transform: `translateX(${slidePosition}vw)` }}
         >
           {/* CARD 1 START */}
-          {getRecentlyAdded().map((item) => {
+          {currentData(max).map((item) => {
             return (
               <ItemCard
                 item={item}
@@ -72,8 +75,10 @@ const CardItemList = ({ getRecentlyAdded, hasDescription }) => {
 };
 
 CardItemList.propTypes = {
-  getRecentlyAdded: PropTypes.func,
+  currentData: PropTypes.func,
   hasDescription: PropTypes.bool,
+  headline: PropTypes.string,
+  max: PropTypes.number,
 };
 
 export default CardItemList;
