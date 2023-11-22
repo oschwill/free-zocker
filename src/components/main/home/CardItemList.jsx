@@ -5,7 +5,7 @@ import SliderButton from './SliderButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 
-const RecentlyAdded = ({ getRecentlyAdded }) => {
+const CardItemList = ({ getRecentlyAdded, hasDescription }) => {
   const [slidePosition, setSlidePosition] = useState(0);
 
   const movePosition = 84;
@@ -55,7 +55,15 @@ const RecentlyAdded = ({ getRecentlyAdded }) => {
         >
           {/* CARD 1 START */}
           {getRecentlyAdded().map((item) => {
-            return <ItemCard item={item} key={item.id} />;
+            return (
+              <ItemCard
+                item={item}
+                key={item.id}
+                hasDescription={hasDescription}
+                verticalDirection={true}
+                index={null}
+              />
+            );
           })}
         </section>
       </section>
@@ -63,8 +71,9 @@ const RecentlyAdded = ({ getRecentlyAdded }) => {
   );
 };
 
-RecentlyAdded.propTypes = {
+CardItemList.propTypes = {
   getRecentlyAdded: PropTypes.func,
+  hasDescription: PropTypes.bool,
 };
 
-export default RecentlyAdded;
+export default CardItemList;
