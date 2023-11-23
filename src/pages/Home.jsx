@@ -1,8 +1,8 @@
 import { useLoaderData } from 'react-router';
 import CardItemList from '../components/main/home/CardItemList';
 
-import ShowMoreButton from '../components/main/home/ShowMoreButton';
 import TopPcGamesList from '../components/main/home/TopPcGamesList';
+import HeaderIntroduction from '../components/header/HeaderIntroduction';
 
 const platforms = {
   pc: 'PC (Windows)',
@@ -25,19 +25,21 @@ const Home = () => {
 
   return (
     <>
+      <HeaderIntroduction
+        bgImage="/images/homeHeaderImage.png"
+        text="FIND & TRACK THE BEST FREE TO-PLAY GAMES!"
+      />
       <CardItemList
         currentData={getRecentlyAdded}
         hasDescription={true}
         headline="Recently Added"
         max={20}
       />
-      <ShowMoreButton />
       <TopPcGamesList
         getBestPcGames={getBestPcGames}
         hasDescription={false}
         headline="Top 4 Games for PC in November 2023"
       />
-      <ShowMoreButton />
       <CardItemList
         currentData={getBestBrowserGames}
         hasDescription={false}

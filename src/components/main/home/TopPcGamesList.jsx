@@ -4,6 +4,7 @@ import ItemCard from './ItemCard';
 /* CSS */
 import styles from './TopPcGamesList.module.css';
 import BigItemCard from './BigItemCard';
+import ShowMoreButton from './ShowMoreButton';
 
 const TopPcGamesList = ({ getBestPcGames, hasDescription, headline }) => {
   return (
@@ -27,6 +28,7 @@ const TopPcGamesList = ({ getBestPcGames, hasDescription, headline }) => {
             }
           })}
         </section>
+        <ShowMoreButton />
       </section>
     </>
   );

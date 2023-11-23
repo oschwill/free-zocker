@@ -4,6 +4,7 @@ import { useState } from 'react';
 import SliderButton from './SliderButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import ShowMoreButton from './ShowMoreButton';
 
 const CardItemList = ({ currentData, hasDescription, headline, max }) => {
   const [slidePosition, setSlidePosition] = useState(0);
@@ -70,6 +71,7 @@ const CardItemList = ({ currentData, hasDescription, headline, max }) => {
           })}
         </section>
       </section>
+      <ShowMoreButton />
     </section>
   );
 };
