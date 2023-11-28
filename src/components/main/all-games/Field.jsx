@@ -7,7 +7,7 @@ import autoAnimate from '@formkit/auto-animate';
 /* CSS */
 import styles from './Field.module.css';
 
-const Field = ({ position, data, fieldDescription }) => {
+const Field = ({ position, data, fieldDescription, onHandleData, checkedData }) => {
   const [isShown, setIsShown] = useState(false);
   const [iconRotation, setIconRotation] = useState(0);
 
@@ -49,13 +49,20 @@ const Field = ({ position, data, fieldDescription }) => {
             data.map((item) => {
               return (
                 <label
-                  htmlFor="all"
-                  className="p-4 bg-inputBackgroundColor rounded-xl flex items-center relative"
+                  htmlFor={item.value}
+                  className={`p-4 bg-inputBackgroundColor rounded-xl flex items-center relative ${
+                    (item.value === 'PC (Windows)' || item.value === 'Web Browser') &&
+                    'w-[85%] ml-auto'
+                  }`}
                   key={crypto.randomUUID()}
                 >
                   <input
                     type="checkbox"
+                    name={item.value}
+                    id={item.value}
                     className="appearance-none p-3 border-[3px] relative checked:after:content-['+'] checked:after:text-white checked:after:absolute text-5rem checked:after:rotate-45 font-medium checked:after:bottom-[-28px] checked:after:left-[-2.5px]"
+                    checked={checkedData.includes(item.value)}
+                    onChange={() => onHandleData(item.value)}
                   />
                   <span className="text-2rem pl-6 text-white">{item.text}</span>
                 </label>
@@ -71,6 +78,8 @@ Field.propTypes = {
   position: PropTypes.string,
   data: PropTypes.array,
   fieldDescription: PropTypes.string,
+  onHandleData: PropTypes.func,
+  checkedData: PropTypes.array,
 };
 
 export default Field;
