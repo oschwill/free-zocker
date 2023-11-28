@@ -38,21 +38,23 @@ const PaginatedItems = ({
         index={index}
         Fade={FadeIn(1, 1)}
       />
-      <ReactPaginate
-        activeClassName={`${styles.item} ${styles.active}`}
-        breakClassName={`${styles.item}`}
-        breakLabel={'...'}
-        containerClassName={`${styles.pagination}`}
-        disabledClassName={`${styles.disabled_page}`}
-        nextClassName={`${styles.item} ${styles.next}`}
-        nextLabel="NEXT >"
-        onPageChange={handlePageClick}
-        pageCount={pageCount}
-        pageClassName={`${styles.item} ${styles.pagination_page}`}
-        pageRangeDisplayed={4}
-        previousClassName={`${styles.item} ${styles.previous}`}
-        previousLabel="< PREVIOUS"
-      />
+      {currentItems.length > 0 && (
+        <ReactPaginate
+          activeClassName={`${styles.item} ${styles.active}`}
+          breakClassName={`${styles.item}`}
+          breakLabel={'...'}
+          containerClassName={`${styles.pagination}`}
+          disabledClassName={`${styles.disabled_page}`}
+          nextClassName={`${styles.item} ${styles.next}`}
+          nextLabel="NEXT >"
+          onPageChange={handlePageClick}
+          pageCount={pageCount}
+          pageClassName={`${styles.item} ${styles.pagination_page}`}
+          pageRangeDisplayed={4}
+          previousClassName={`${styles.item} ${styles.previous}`}
+          previousLabel="< PREVIOUS"
+        />
+      )}
     </>
   );
 };

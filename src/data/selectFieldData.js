@@ -4,11 +4,11 @@ export const platforms = [
     text: 'All Platforms',
   },
   {
-    value: 'win',
+    value: 'PC (Windows)',
     text: 'Windows (PC)',
   },
   {
-    value: 'browser',
+    value: 'Web Browser',
     text: 'Browser (Web)',
   },
 ];
@@ -34,5 +34,5 @@ export const sortBy = [
 
 export const allGenres = (data) => {
   const tempArr = [...new Set(data.map(({ genre }) => genre.trimStart()))];
-  return tempArr.map((cur) => ({ value: cur.replace(/ /g, '').toLowerCase(), text: cur }));
+  return tempArr.map((cur) => ({ value: cur, text: cur }));
 };

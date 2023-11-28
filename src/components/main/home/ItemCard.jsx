@@ -5,6 +5,7 @@ const ItemCard = ({ currentItems, hasDescription, verticalDirection, index, Fade
   return (
     <>
       {currentItems &&
+        currentItems.length > 0 &&
         currentItems.map((item) => {
           return (
             <Fade key={item.id}>
@@ -64,6 +65,11 @@ const ItemCard = ({ currentItems, hasDescription, verticalDirection, index, Fade
             </Fade>
           );
         })}
+      {currentItems && currentItems.length === 0 && (
+        <p className="text-[5rem] text-white text-center col-span-full mt-20">
+          KEINE SPIELE VORHANDEN
+        </p>
+      )}
     </>
   );
 };
