@@ -12,7 +12,7 @@ const SliderButton = ({ children, slideGallery, classes, type }) => {
 };
 
 SliderButton.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.object,
   slideGallery: PropTypes.func,
   classes: PropTypes.string,
   type: PropTypes.string,

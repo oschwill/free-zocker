@@ -1,17 +1,26 @@
 import PropTypes from 'prop-types';
-import ItemCard from './ItemCard';
+// import ItemCard from './ItemCard';
 import { useState } from 'react';
 import SliderButton from './SliderButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import ShowMoreButton from './ShowMoreButton';
+import ItemCard from './ItemCard';
+import { empty } from '../../../utils/animationContainer';
+
+/* ANIMATIONS */
+// import styled, { keyframes } from 'styled-components';
+// import { fadeIn } from 'react-animations';
+
+// const Fade = styled.div`
+//   animation: 1s ${keyframes`${fadeIn}`} 1;
+// `;
 
 const CardItemList = ({ currentData, hasDescription, headline, max }) => {
   const [slidePosition, setSlidePosition] = useState(0);
 
   const movePosition = 84;
   const maxSlidePosition = (currentData(max).length / 4 - 1) * movePosition;
-  console.log(maxSlidePosition);
 
   const slideGallery = (type) => {
     switch (type) {
@@ -30,8 +39,6 @@ const CardItemList = ({ currentData, hasDescription, headline, max }) => {
         break;
     }
   };
-
-  console.log(currentData(max).length);
 
   return (
     <section className="flex flex-col w-full justify-start pl-[10%] pt-[4%] overflow-hidden relative">
@@ -57,18 +64,13 @@ const CardItemList = ({ currentData, hasDescription, headline, max }) => {
           className="flex gap-[1vw] w-[10000px] transition-all duration-500"
           style={{ transform: `translateX(${slidePosition}vw)` }}
         >
-          {/* CARD 1 START */}
-          {currentData(max).map((item) => {
-            return (
-              <ItemCard
-                item={item}
-                key={item.id}
-                hasDescription={hasDescription}
-                verticalDirection={true}
-                index={null}
-              />
-            );
-          })}
+          <ItemCard
+            currentItems={currentData(max)}
+            hasDescription={hasDescription}
+            verticalDirection={true}
+            index={null}
+            Fade={empty()}
+          />
         </section>
       </section>
       <ShowMoreButton />

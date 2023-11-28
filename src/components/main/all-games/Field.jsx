@@ -26,7 +26,7 @@ const Field = ({ position, data, fieldDescription }) => {
 
   return (
     <article
-      className="w-[20.2%] flex flex-col bg-boxBackgroundColor absolute z-10"
+      className="w-[20.2%] flex flex-col bg-boxBackgroundColor absolute z-[8]"
       ref={parentRef}
       style={{ left: `${position}%` }}
     >
