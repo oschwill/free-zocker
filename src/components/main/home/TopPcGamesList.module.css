@@ -1,0 +1,8 @@
+.games_section {
+  padding-left: 10%;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  grid-template-rows: repeat(3, 1fr);
+  width: 100%;
+  gap: 1%;
+}
