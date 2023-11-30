@@ -5,7 +5,7 @@ import PaginatedItems from '../../pagination/PaginatedItems';
 
 const AllItems = ({ currentData, hasDescription }) => {
   return (
-    <section className="grid grid-cols-4 pl-[10%] pt-[12%] gap-y-16">
+    <section className="grid grid-cols-4 pl-[10%] pt-[4%] gap-y-16">
       <PaginatedItems
         itemsPerPage={8}
         currentData={currentData}

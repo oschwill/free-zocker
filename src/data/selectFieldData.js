@@ -15,19 +15,19 @@ export const platforms = [
 
 export const sortBy = [
   {
-    value: 'rel',
+    value: 'relevance',
     text: 'Relevance',
   },
   {
-    value: 'pop',
+    value: 'popularity',
     text: 'Popularity',
   },
   {
-    value: 'date',
+    value: 'release-date',
     text: 'Release Date',
   },
   {
-    value: 'alp',
+    value: 'alphabetical',
     text: 'Alphabetical',
   },
 ];

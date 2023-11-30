@@ -6,23 +6,32 @@ import { allGenres, platforms, sortBy } from '../data/selectFieldData';
 import { useEffect, useState } from 'react';
 import AllItems from '../components/main/all-games/AllItems';
 import { getCurrentData } from '../data/handleData';
+import SearchTerms from '../components/main/all-games/SearchTerms';
+import { ZoomIn } from '../utils/animationContainer';
+import FetchAPI from '../functions/fetchData';
 
 let tempPlatformArr = platforms.slice(1).map((val) => val.value);
 
 const AllGames = () => {
   const [checkedData, setCheckedData] = useState(platforms.map((val) => val.value));
-  const [sortData, setSortData] = useState([]);
+  const [sortData, setSortData] = useState(['relevance']);
   const [currentData, setCurrentData] = useState([]);
-  const data = useLoaderData();
+  const [tempData, setTempData] = useState([]);
+
+  let data = useLoaderData();
 
   useEffect(() => {
+    if (tempData.length < 1) {
+      setTempData(data);
+    }
+
     if (checkedData.length < 1) {
       setCurrentData([]);
       return;
     }
 
-    getCurrentData(checkedData, setCurrentData, data);
-  }, [data, checkedData]);
+    getCurrentData(checkedData, setCurrentData, tempData);
+  }, [checkedData, tempData, data]);
 
   const handleSetCheckedData = (val) => {
     // Plattformen handlen
@@ -63,9 +72,11 @@ const AllGames = () => {
   };
 
   const handleSetSortData = (sort) => {
-    console.log(sort);
-    setSortData(sort);
-    //
+    setSortData([sort]);
+    FetchAPI(sort).then((_data) => {
+      setTempData(_data);
+      getCurrentData(checkedData, setCurrentData, _data);
+    });
   };
 
   return (
@@ -93,9 +104,13 @@ const AllGames = () => {
           onHandleData={handleSetSortData}
           checkedData={sortData}
         />
+        <SearchTerms
+          checkedData={checkedData}
+          sortData={sortData}
+          onHandleData={handleSetCheckedData}
+          Fade={ZoomIn(0.5, 1)}
+        />
       </SelectFields>
-      {/* PLACEHOLDER SEARCHTERMS */}
-      <p className="text-white">data</p>
       <AllItems currentData={currentData} hasDescription={false} />
     </>
   );
