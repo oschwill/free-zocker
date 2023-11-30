@@ -19,9 +19,9 @@ const Field = ({ position, data, fieldDescription, onHandleData, checkedData }) 
     }
   }, [parentRef]);
 
-  const handleSetIsShown = () => {
-    setIsShown(!isShown);
-    setIconRotation((cur) => (cur === 0 ? 180 : 0));
+  const handleSetIsShown = (_isShown) => {
+    setIsShown(_isShown);
+    setIconRotation(_isShown ? 180 : 0);
   };
 
   return (
@@ -29,11 +29,10 @@ const Field = ({ position, data, fieldDescription, onHandleData, checkedData }) 
       className="w-[20.2%] flex flex-col bg-boxBackgroundColor absolute z-[8]"
       ref={parentRef}
       style={{ left: `${position}%` }}
+      onMouseLeave={() => handleSetIsShown(false)}
+      onMouseEnter={() => handleSetIsShown(true)}
     >
-      <div
-        className="p-3 pl-8 pr-8 bg-buttonBackgroundColor rounded-2xl text-left text-2.5rem w-full hover:opacity-75 text-white flex items-center justify-between"
-        onClick={handleSetIsShown}
-      >
+      <div className="p-3 pl-8 pr-8 bg-buttonBackgroundColor rounded-2xl text-left text-2.5rem w-full hover:opacity-75 text-white flex items-center justify-between">
         <p className="font-medium">{fieldDescription}</p>
         <FontAwesomeIcon
           icon={faAngleDown}

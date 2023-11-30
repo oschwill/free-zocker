@@ -1,5 +1,3 @@
-const url = `https://free-to-play-games-database.p.rapidapi.com/api/games`;
-
 const options = {
   method: 'GET',
   headers: {
@@ -11,8 +9,12 @@ const options = {
 
 let returnData = [];
 
-const FetchAPI = async () => {
-  if (returnData.length < 1) {
+let _params = 'relevance';
+
+const FetchAPI = async (params) => {
+  const url = `https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=${params}`;
+  if (returnData.length < 1 || params !== _params) {
+    _params = params;
     return await fetch(url, options)
       .then((res) => res.json())
       .then((data) => {
