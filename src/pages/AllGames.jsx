@@ -72,6 +72,9 @@ const AllGames = () => {
   };
 
   const handleSetSortData = (sort) => {
+    if (sortData.includes(sort)) {
+      return;
+    }
     setSortData([sort]);
     FetchAPI(sort).then((_data) => {
       setTempData(_data);
