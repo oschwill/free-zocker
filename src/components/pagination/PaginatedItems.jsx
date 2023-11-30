@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
 import ReactPaginate from 'react-paginate';
 import ItemCard from '../main/home/ItemCard';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 /* ANIMATIONS */
 import { FadeIn } from '../../utils/animationContainer';
 
 /* CSS*/
 import styles from './PaginatedItems.module.css';
+import { useEffect } from 'react';
 
 const PaginatedItems = ({
   itemsPerPage,
@@ -18,6 +19,15 @@ const PaginatedItems = ({
 }) => {
   const [itemOffset, setItemOffset] = useState(0);
 
+  const paginationRef = useRef();
+
+  useEffect(() => {
+    setItemOffset(0);
+    if (paginationRef.current) {
+      paginationRef.current.state.selected = 0;
+    }
+  }, [currentData]);
+
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = currentData.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(currentData.length / itemsPerPage);
@@ -25,7 +35,6 @@ const PaginatedItems = ({
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % currentData.length;
-    // console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
     setItemOffset(newOffset);
   };
 
@@ -38,8 +47,9 @@ const PaginatedItems = ({
         index={index}
         Fade={FadeIn(1, 1)}
       />
-      {currentItems.length > 0 && (
+      {currentData.length > itemsPerPage && (
         <ReactPaginate
+          ref={paginationRef}
           activeClassName={`${styles.item} ${styles.active}`}
           breakClassName={`${styles.item}`}
           breakLabel={'...'}
