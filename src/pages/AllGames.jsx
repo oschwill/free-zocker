@@ -76,7 +76,7 @@ const AllGames = () => {
       return;
     }
     setSortData([sort]);
-    FetchAPI(sort).then((_data) => {
+    FetchAPI(`games?sort-by=${sort}`).then((_data) => {
       setTempData(_data);
       getCurrentData(checkedData, setCurrentData, _data);
     });
