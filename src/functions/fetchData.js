@@ -12,8 +12,9 @@ let returnData = [];
 let _params = 'relevance';
 
 const FetchAPI = async (params) => {
-  const url = `https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=${params}`;
-  if (returnData.length < 1 || params !== _params) {
+  const url = `https://free-to-play-games-database.p.rapidapi.com/api/${params}`;
+  if (returnData.length < 1 || params !== _params || params.startsWith('game?id=')) {
+    console.log(url);
     _params = params;
     return await fetch(url, options)
       .then((res) => res.json())
