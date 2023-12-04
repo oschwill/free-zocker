@@ -1,9 +1,11 @@
-import { APIKEY } from './api';
+// import { APIKEY } from './api';
+
+const API_KEY = import.meta.env.API_KEY;
 
 const options = {
   method: 'GET',
   headers: {
-    'X-RapidAPI-Key': APIKEY,
+    'X-RapidAPI-Key': API_KEY,
     'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com',
   },
   mode: 'cors',

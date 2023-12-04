@@ -16,7 +16,7 @@ import LoadingSpinner from './components/loading/LoadingSpinner';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout loader={() => FetchAPI('games?sort-by=relevance')} />}>
+    <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} loader={() => FetchAPI('games?sort-by=relevance')} />
       <Route
         path="/all"
