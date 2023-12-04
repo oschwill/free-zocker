@@ -22,3 +22,25 @@ html {
   background-color: #ff4654;
   border-radius: 20px;
 }
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #bdbcbd #102130;
+}
+
+/* Chrome, Edge, and Safari */
+.scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: #102130;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #bdbcbd;
+  border-radius: 4px;
+  border: 0px none #ffffff;
+}

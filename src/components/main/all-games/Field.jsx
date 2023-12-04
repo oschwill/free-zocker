@@ -4,9 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef, useState } from 'react';
 import autoAnimate from '@formkit/auto-animate';
 
-/* CSS */
-import styles from './Field.module.css';
-
 const Field = ({ position, data, fieldDescription, onHandleData, checkedData }) => {
   const [isShown, setIsShown] = useState(false);
   const [iconRotation, setIconRotation] = useState(0);
@@ -41,9 +38,7 @@ const Field = ({ position, data, fieldDescription, onHandleData, checkedData }) 
         />
       </div>
       {isShown && (
-        <div
-          className={`flex flex-col gap-6 p-6 transition-all overflow-auto h-[210px] ${styles.scrollbar}`}
-        >
+        <div className={`flex flex-col gap-6 p-6 transition-all overflow-auto h-[210px] scrollbar`}>
           {data &&
             data.map((item) => {
               return (
