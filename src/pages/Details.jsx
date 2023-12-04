@@ -12,6 +12,7 @@ const Details = () => {
   const urlParam = useParams();
 
   useEffect(() => {
+    setDetailData(null);
     FetchAPI(`game?id=${urlParam.id}`).then((_data) => {
       setDetailData(_data);
     });
