@@ -35,7 +35,7 @@ const ScreenShotItem = ({ img }) => {
 };
 
 ScreenShotItem.propTypes = {
-  img: PropTypes.array,
+  img: PropTypes.object,
 };
 
 export default ScreenShotItem;

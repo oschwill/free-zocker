@@ -26,7 +26,7 @@ const ItemCard = ({ currentItems, hasDescription, verticalDirection, index, Fade
                   </div>
                 )}
                 <div
-                  className={`flex flex-col  mt-12 ml-[1vw] mr-[1vw] justify-center ${
+                  className={`flex flex-col mt-12 ml-[1vw] mr-[1vw] justify-center ${
                     verticalDirection ? 'gap-16' : 'gap-6 pl-8'
                   }`}
                 >
