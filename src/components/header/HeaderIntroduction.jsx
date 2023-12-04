@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const HeaderIntroduction = ({ bgImage, text }) => {
   return (
-    <section className="flex justify-end">
+    <section className="flex justify-end mt-32">
       <article className="relative flex flex-col mr-16 h-50vh w-4/5 md:w-84% lg:w-87% xl:w-90% 2xl:w-11/12">
         <img
           src={bgImage}
