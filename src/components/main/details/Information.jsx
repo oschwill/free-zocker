@@ -4,7 +4,6 @@ const Information = ({ detailData }) => {
   const month = new Date(detailData.release_date).toLocaleString('default', { month: 'long' });
   const day = new Date(detailData.release_date).getDate();
   const year = new Date(detailData.release_date).getFullYear();
-  console.log(day);
 
   return (
     <section className="grid grid-cols-2 pl-[10%] pt-[6%] gap-x-32 mr-16 text-white">

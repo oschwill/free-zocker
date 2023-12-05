@@ -22,7 +22,10 @@ const Details = () => {
     <>
       {detailData ? (
         <>
-          <HeaderIntroduction bgImage={detailData.screenshots[0].image} text="" />
+          <HeaderIntroduction
+            bgImage={detailData.screenshots[0] && detailData.screenshots[0].image}
+            text=""
+          />
           <About detailData={detailData} />
           <ScreenShots images={detailData.screenshots.slice(1)} />
           <Information detailData={detailData} />
