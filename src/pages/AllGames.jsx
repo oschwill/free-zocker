@@ -96,7 +96,7 @@ const AllGames = () => {
         <Field
           position="32.5"
           data={allGenres(data)}
-          fieldDescription="GENRE/TAG"
+          fieldDescription="GENRE"
           onHandleData={handleSetCheckedData}
           checkedData={checkedData}
         />
