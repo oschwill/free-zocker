@@ -63,11 +63,18 @@ export default function UseAutocomplete() {
     <div>
       <div {...getRootProps()}>
         <HeaderInputBox>
-          <Input {...getInputProps()} />
+          <Input
+            {...getInputProps()}
+            onClick={() => {
+              if (getInputProps().ref.current.value) {
+                getInputProps().ref.current.value = '';
+              }
+            }}
+          />
         </HeaderInputBox>
       </div>
       {groupedOptions.length > 0 ? (
-        <Listbox {...getListboxProps()}>
+        <Listbox {...getListboxProps()} className="scrollbar">
           {groupedOptions.map((option, index) => (
             <li
               key={crypto.randomUUID()}
